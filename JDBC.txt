@@ -1,0 +1,5 @@
+create table wipro73(empno number,name varchar2(30),address varchar2(30),salary number)
+
+insert into wipro73 values(102,'goutham','Bangalore',56000);
+
+select * from wipro73;
