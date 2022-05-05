@@ -74,7 +74,44 @@ public static void main(String[] args)throws Exception
 }
 }
 -------------------------------------------------------------------------------------------------------------
-
+example-3
+-------------------------
+package org.jdbc;
+import java.sql.*;
+public class FirstJdbc3 
+{
+public static void main(String[] args)throws Exception 
+{
+	//load the driver
+	Class.forName("oracle.jdbc.driver.OracleDriver");
+	//create connection
+	Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","1234");
+	//query statement
+	Statement st=con.createStatement();
+	st.execute("update emp73 set address='Hydrabad' where empno=101");
+	System.out.println("row updated");
+}
+}
+----------------------------------------------------------------------------------------------------------------------------------
+example-4
+--------------------
+package org.jdbc;
+import java.sql.*;
+public class FirstJdbc4 
+{
+public static void main(String[] args)throws Exception 
+{
+	//load the driver
+	Class.forName("oracle.jdbc.driver.OracleDriver");
+	//create connection
+	Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","1234");
+	//query statement
+	Statement st=con.createStatement();
+	st.execute("delete from emp73 where empno=101");
+	System.out.println("row deleted");
+}
+}
+-----------------------------------------------------------------------------------------------
 
 
 
