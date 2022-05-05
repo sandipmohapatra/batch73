@@ -29,4 +29,56 @@ delete from wipro73 where empno=103;
 delete a column
 alter table wipro73 drop column phoneno;
 -------------------------------------------------------------------------------------------------------------
+path for jar file:-
+C:\oraclexe\app\oracle\product\10.2.0\server\jdbc\lib\ojdbc14.jar
+
+copy it and paste on the desktop.
+-------------------------------------------------------------------------------------------------------------
+project ---rc----properties---------java build path------------libraries----------classpath----add external jar-----apply and close
+------------------------------------------------------------------------------------------------------------
+Example-1
+--------------------
+package org.jdbc;
+import java.sql.*;
+public class FirstJdbc 
+{
+public static void main(String[] args)throws Exception 
+{
+	//load the driver
+	Class.forName("oracle.jdbc.driver.OracleDriver");
+	//create connection
+	Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","1234");
+	//query statement
+	Statement st=con.createStatement();
+	st.execute("create table emp73(empno number,name varchar2(30),address varchar2(30))");
+	System.out.println("Table created");
+}
+}
+------------------------------------------------------------------------------------------------
+Example-2
+------------------------
+package org.jdbc;
+import java.sql.*;
+public class FirstJdbc2 
+{
+public static void main(String[] args)throws Exception 
+{
+	//load the driver
+	Class.forName("oracle.jdbc.driver.OracleDriver");
+	//create connection
+	Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","1234");
+	//query statement
+	Statement st=con.createStatement();
+	st.execute("insert into emp73 values(101,'sandip','bangalore')");
+	System.out.println("row inserted");
+}
+}
+-------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
 
