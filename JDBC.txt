@@ -31,7 +31,7 @@ alter table wipro73 drop column phoneno;
 -------------------------------------------------------------------------------------------------------------
 path for jar file:-
 C:\oraclexe\app\oracle\product\10.2.0\server\jdbc\lib\ojdbc14.jar
-
+------------------------------------------------------------------------------------------------------------------------------
 copy it and paste on the desktop.
 -------------------------------------------------------------------------------------------------------------
 project ---rc----properties---------java build path------------libraries----------classpath----add external jar-----apply and close
@@ -112,8 +112,83 @@ public static void main(String[] args)throws Exception
 }
 }
 -----------------------------------------------------------------------------------------------
-
-
+*
+PreparedStatement st=con.prepareStatement("insert into emp73 values(?,?,?)");
+for dynamic insert,update,delete ...
+--------------------------------------------------------------------
+example-5
+-------------------
+package org.jdbc;
+import java.sql.*;
+import java.util.*;
+public class FirstJdbc5 
+{
+public static void main(String[] args)throws Exception 
+{
+	Class.forName("oracle.jdbc.driver.OracleDriver");
+	Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","1234");
+    PreparedStatement st=con.prepareStatement("insert into emp73 values(?,?,?)");
+    Scanner ob=new Scanner(System.in);
+    System.out.println("enter empno,name,address");
+    int empno=ob.nextInt();
+    String name=ob.next();
+    String add=ob.next();
+    st.setInt(1,empno);
+    st.setString(2,name);
+    st.setString(3,add);
+    st.execute();
+	System.out.println("row inserted");
+}
+}
+-------------------------------------------------------------------------------------------------------------
+example-6
+----------------------
+package org.jdbc;
+import java.sql.*;
+import java.util.*;
+public class FirstJdbc6 
+{
+public static void main(String[] args)throws Exception 
+{
+	Class.forName("oracle.jdbc.driver.OracleDriver");
+	Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","1234");
+    PreparedStatement st=con.prepareStatement("update emp73 set address=? where empno=?");
+    Scanner ob=new Scanner(System.in);
+    System.out.println("enter empno whose address you want to update");
+    int empno=ob.nextInt();
+    String add=ob.next();
+    st.setString(1,add);
+    st.setInt(2,empno);
+    st.execute();
+	System.out.println("row updated");
+}
+}
+-----------------------------------------------------------------------------------------
+example-7
+--------------------
+package org.jdbc;
+import java.sql.*;
+import java.util.*;
+public class FirstJdbc7 
+{
+public static void main(String[] args)throws Exception 
+{
+	Class.forName("oracle.jdbc.driver.OracleDriver");
+	Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","1234");
+    PreparedStatement st=con.prepareStatement("delete from emp73 where empno=?");
+    Scanner ob=new Scanner(System.in);
+    System.out.println("enter empno you want to delete");
+    int empno=ob.nextInt();
+    st.setInt(1,empno);
+    st.execute();
+	System.out.println("row deleted");
+}
+}
+---------------------------------------------------------------------------------------
+create a table airlines(flno,custname,custaddress,source,destination)
+1)insert data,update data,delete data.
+enter data dynamically.
+----------------------------------------------------------------------------------------------
 
 
 
