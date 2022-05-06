@@ -198,6 +198,7 @@ java(byte code) ----->driver----------->database(oracle/sqlserver)(ascii code)
 A java database connectivity is an application which will behave as an interface between the java program and the database.
 
 Database driver are 2 types:-
+--------------------------------------------------------------
 1)thick driver(java->driver->odbc->database)
 2)thin driver(java->driver->database)
 
@@ -304,7 +305,28 @@ DatabaseMetaData md=con.getMetaData();
 System.out.println(md.getDriverVersion());
 System.out.println(md.getDriverName());
 -----------------------------------------------------------------------------
-
+example-4
+--------------------
+ResultSet to retrive the data
+---------------------------------------
+package org.jdbc;
+import java.sql.*;
+import java.util.*;
+public class FirstJdbc8 
+{
+public static void main(String[] args)throws Exception 
+{
+	Class.forName("oracle.jdbc.driver.OracleDriver");
+	Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","1234");
+    PreparedStatement st=con.prepareStatement("select * from emp73");
+    ResultSet rs=st.executeQuery();
+    while(rs.next())
+    {
+	System.out.println(rs.getInt(1)+"   "+rs.getString(2)+"   "+rs.getString(3));
+    }
+}
+}
+-----------------------------------------------------------------------------------------------------------------------------------------
 
 
 
