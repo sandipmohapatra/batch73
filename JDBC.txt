@@ -327,6 +327,30 @@ public static void main(String[] args)throws Exception
 }
 }
 -----------------------------------------------------------------------------------------------------------------------------------------
+example-5
+------------------
+package org.jdbc;
+import java.sql.*;
+import java.util.*;
+public class FirstJdbc9 
+{
+public static void main(String[] args)throws Exception 
+{
+	Class.forName("oracle.jdbc.driver.OracleDriver");
+	Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","1234");
+    PreparedStatement st=con.prepareStatement("select * from emp73 where empno=?");
+    Scanner ob=new Scanner(System.in);
+    System.out.println("Enter the empno you want to search");
+    int empno=ob.nextInt();
+    st.setInt(1, empno);
+    ResultSet rs=st.executeQuery();
+    while(rs.next())
+    {
+	System.out.println(rs.getInt(1)+"   "+rs.getString(2)+"   "+rs.getString(3));
+    }
+}
+}
+------------------------------------------------------------------------------------------------------------
 
 
 
