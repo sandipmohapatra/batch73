@@ -518,7 +518,19 @@ public class FirstJdbc10
 }
 -------------------------------------------------------------------------------------------------------------------
 
+example:-2
 
+procedure :- It does not return any avalue.
+----------------------------------------------------------------------
+create or replace procedure add_number(i number default 0,j number default 0,k number default 0)is
+begin
+dbms_output.put_line('result :'||(i+j+k));
+end;
+
+begin
+add_number(10,20,21);
+end;
+---------------------------------------------------------------------------------
 
 
 
