@@ -386,8 +386,28 @@ dbms_output.put_line('The result is :'||c);
 end;
 ---------------------------------------------------------------------------------------------
 
-
-
+wap to enter 6 nos and find sum and average.
+------------------------------------------------------------------------------------------
+declare
+a number;
+b number;
+c number;
+d number;
+e number;
+sum1 number;
+avg1 number;
+begin
+a:=:a;
+b:=:b;
+c:=:c;
+d:=:d;
+e:=:e;
+sum1:=a+b+c+d+e;
+avg1:=sum1/5;
+dbms_output.put_line('The sum is :'||sum1);
+dbms_output.put_line('The avg is :'||avg1);
+end;
+----------------------------------------------------------------------------
 
 
 
