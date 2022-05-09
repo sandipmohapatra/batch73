@@ -470,5 +470,34 @@ dbms_output.put_line('The greatest is '||c);
 end if;
 end;
 -------------------------------------------------------------------------
+example-8
+-----------------------------------
+function
+-------------------
+create or replace function adds(i number,j number)return number is
+begin
+return i+j;
+end;
+-------------------------------------------------------
+call the function
+----------------------------------------
+declare
+k number;
+begin
+k:=adds(10,20);
+dbms_output.put_line('The result is'||k);
+end;
+
+
+
+
+
+
+
+
+
+
+
+
 
 
