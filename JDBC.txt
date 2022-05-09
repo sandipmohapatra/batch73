@@ -437,9 +437,20 @@ dbms_output.put_line('The greatest is '||b);
 end if;
 end;
 ---------------------------------------------------------------
+example-6
+-----------------
+declare 
+a number;
+begin
+a:=:a;
+if(a mod 2=0)then
+dbms_output.put_line('The number is even ');
+else
+dbms_output.put_line('The number is odd ');
+end if;
+end;
 
-
-
+------------------------------------------------------------
 
 
 
