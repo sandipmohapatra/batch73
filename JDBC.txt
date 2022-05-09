@@ -385,7 +385,8 @@ c:=a+b;
 dbms_output.put_line('The result is :'||c);
 end;
 ---------------------------------------------------------------------------------------------
-
+example-3
+-------------------
 wap to enter 6 nos and find sum and average.
 ------------------------------------------------------------------------------------------
 declare
@@ -408,6 +409,34 @@ dbms_output.put_line('The sum is :'||sum1);
 dbms_output.put_line('The avg is :'||avg1);
 end;
 ----------------------------------------------------------------------------
+example-4
+------------------
+declare 
+a number:=10;
+b number:=20;
+begin
+if(a>b)then
+dbms_output.put_line('The greatest is '||a);
+else
+dbms_output.put_line('The greatest is '||b);
+end if;
+end;
+------------------------------------------------------------------
+example-5
+--------------------
+declare 
+a number;
+b number;
+begin
+a:=:a;
+b:=:b;
+if(a>b)then
+dbms_output.put_line('The greatest is '||a);
+else
+dbms_output.put_line('The greatest is '||b);
+end if;
+end;
+---------------------------------------------------------------
 
 
 
