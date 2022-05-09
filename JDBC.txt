@@ -361,7 +361,7 @@ we have 3 parts
 2)begin
 3)end
 ---------------------------------------------------------------------
-example
+example-1
 --------------------
 declare
 a number:=10;
@@ -372,7 +372,19 @@ c:=a+b;
 dbms_output.put_line('The result is :'||c);
 end;
 -------------------------------------------------------------
-
+example-2
+--------------------
+declare
+a number;
+b number;
+c number;
+begin
+a:=:a;
+b:=:b;
+c:=a+b;
+dbms_output.put_line('The result is :'||c);
+end;
+---------------------------------------------------------------------------------------------
 
 
 
