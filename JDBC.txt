@@ -188,6 +188,9 @@ public static void main(String[] args)throws Exception
 create a table airlines(flno,custname,custaddress,source,destination)
 1)insert data,update data,delete data.
 enter data dynamically.
+
+create the project using case and switch.and display the data also.
+
 ----------------------------------------------------------------------------------------------
 JDBC notes
 ------------------
@@ -351,8 +354,24 @@ public static void main(String[] args)throws Exception
 }
 }
 ------------------------------------------------------------------------------------------------------------
-
-
+Pl-SQL
+--------------------------------------------------------------------
+we have 3 parts
+1)declare
+2)begin
+3)end
+---------------------------------------------------------------------
+example
+--------------------
+declare
+a number:=10;
+b number:=20;
+c number;
+begin
+c:=a+b;
+dbms_output.put_line('The result is :'||c);
+end;
+-------------------------------------------------------------
 
 
 
