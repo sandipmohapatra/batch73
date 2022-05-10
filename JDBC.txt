@@ -555,7 +555,36 @@ System.out.println("The result is "+n);
  begin K:=i+j; 
  end;
 ----------------------------------------------------------------------------------------------------------------------------
+JSP
+-------------
+<html>
+<h1><center>Student Registration Page</center></h1>
+<form action="Second.jsp">
+<table>
+<tr><td>Enter your Name<td><input type=text name=t1 size=20 required></tr>
+<tr><td>Enter your Address<td><input type=text name=t2 size=20 required></tr>
+<tr><td>Enter your Email<td><input type=text name=t3 size=20 required></tr>
+<tr><td>Enter your Phone no<td><input type=text name=t4 size=20 required></tr>
+<tr><td><td><input type=submit value=submit></tr>
 
+</table>
+</form>
+</html>
+----------------------------------------------
+Second.jsp
+------------------------
+<% String a=request.getParameter("t1");
+String b=request.getParameter("t2");
+String c=request.getParameter("t3");
+String d=request.getParameter("t4");%>
+
+
+<%out.println("The name is "+a);
+out.println("The address is "+b);
+out.println("The name is "+c);
+out.println("The name is "+d);
+ %>
+------------------------------------------------
 
 
 
