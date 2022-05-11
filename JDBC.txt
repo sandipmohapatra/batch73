@@ -641,7 +641,8 @@ example-2
 <tr><td>Enter your Address<td><input type=text name=t2 size=20></tr>
 <tr><td>Enter your Email<td><input type=text name=t3 size=20></tr>
 <tr><td>Enter your Phone no<td><input type=text name=t4 size=20></tr>
-<tr><td><td><input type=submit value=insert name=b1>
+<tr><td><td>
+<input type=submit value=insert name=b1>
 <input type=submit value=update name=b1>
 <input type=submit value=delete name=b1>
 <input type=submit value=select name=b1></tr>
@@ -705,6 +706,23 @@ out.println("</table>");
  
  %>
 --------------------------------------------------------------------------------------------------------------------------------------
+explain
+----------------------
+ResultSet rs=st.executeQuery();
+    while(rs.next())
+    {
+	System.out.println(rs.getInt(1)+"   "+rs.getString(2)+"   "+rs.getString(3));
+    }
+
+------------------------------------------------------------------
+ResultSet rs =st.executeQuery();
+rs -------------will store the whole table
+with the help of the pointer which will iterate till the end.
+while(rs.next()) <---till there is records it will print.
+{
+println();
+}
+----------------------------------------------------------------------------
 
 
 
