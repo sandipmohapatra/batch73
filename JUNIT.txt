@@ -76,7 +76,27 @@ public String concat(String string1,String string2)
 return string1+string2;
 }}
 ----------------------------------------
-
+import static org.junit.Assert.*;
+import org.junit.Test;
+public class CalculatorTest 
+{
+Calculator ob=new Calculator();
+@Test
+public void testSquare()
+{
+	assertEquals(49,ob.square(7));
+	assertEquals(36,ob.square(6));
+}
+@Test
+public void TestOpt()
+{
+	assertEquals(25,ob.add(12,13));
+	assertEquals(8,ob.sub(12,4));
+	assertEquals(24,ob.mul(12,2));
+	assertEquals(3,ob.div(12,4));
+}
+}
+------------------------------------------
 
 
 
