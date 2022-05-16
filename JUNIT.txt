@@ -27,7 +27,20 @@ folder structure
 3)src/test/java
 4)src/test/resources---supporting files
 -------------------------------------------------------------------------------------------------------
-
+google :- maven dependency for junit 4
+------------------------------------------------------------------------------
+pom.xml
+-----------------
+<dependencies>
+  <!-- https://mvnrepository.com/artifact/junit/junit -->
+<dependency>
+    <groupId>junit</groupId>
+    <artifactId>junit</artifactId>
+    <version>4.12</version>
+    <scope>test</scope>
+</dependency>
+  </dependencies>
+------------------------------------------------------------------------------
 
 
 
