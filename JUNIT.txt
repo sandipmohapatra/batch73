@@ -95,6 +95,25 @@ public void TestOpt()
 	assertEquals(24,ob.mul(12,2));
 	assertEquals(3,ob.div(12,4));
 }
+@Test
+public void testUser()
+{
+	assertEquals("sandip",ob.user("sandip"));
+}
+
+@Test
+public void testString()
+{
+	String result=ob.concat("Hello", "Students");
+}
+@Test
+public void compareString()
+{
+	String s1="Hello";
+	String s2="Hello";
+	assertSame(s1,s2);
+	
+}
 }
 ------------------------------------------
 
