@@ -1,0 +1,38 @@
+JUNIT TESTING
+---------------------------------
+It is known as functional testing.
+we have 2 parts
+1)actual output
+2)Excepted output
+example:- assertEquals(25,add(12,13));
+If both are equal then it displays green signal otherwise  brown signal.
+green signal means test is pass other wise test fail.
+---------------------------------------------------------------------------------------------------------
+Maven is a tool.It provides the supporting jar files.
+example:-for jdbc,servlet we are adding jar files.
+it was esay because it was single jar file. Commking to spring framework we have 25 to 30 jar files.
+so it will be difficult to search and add the jar files.
+If the sprng version changes then we have to search again for the same version which are compactible for that version.So it is a difficult job.
+In that case if we use maven we have to only specify the spring version .Maven will only download the jar files of the compactable verison.
+--------------------------------------------------------------------------
+step 1:-file --->new ---->maven project
+step 2:-Create simple project
+step 3:-groupid :- org.sandip (package name)
+step 4:-artifactId :- MavenProjectDemo
+-------------------------------------------------------------
+folder structure
+-----------------
+1)src/main/java
+2)src/main/resources---supporting files
+3)src/test/java
+4)src/test/resources---supporting files
+-------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+ 
