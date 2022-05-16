@@ -41,8 +41,41 @@ pom.xml
 </dependency>
   </dependencies>
 ------------------------------------------------------------------------------
-
-
+Example-1
+-----------------------------
+src/main/java
+----------------------------------------------
+public class Calculator 
+{
+public int square(int i)
+{
+	return i*i;
+	}
+public int add(int i,int j)
+{
+	return i+j;
+	}
+public int sub(int i,int j)
+{
+	return i-j;
+	}
+public int mul(int i,int j)
+{
+	return i*j;
+	}
+public int div(int i,int j)
+{
+	return i/j;
+	}
+public String user(String name)
+{
+	return "sandip";
+}
+public String concat(String string1,String string2)
+{
+return string1+string2;
+}}
+----------------------------------------
 
 
 
