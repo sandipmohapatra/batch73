@@ -159,11 +159,11 @@ public class Test1
 @BeforeClass ---This will execute for one time before the tests
 
 @Before ---This will execute before each test
-@Test class
+@Test 
 @After---This will execute after each test
 
 @Before ---This will execute before each test
-@Test class
+@Test 
 @After---This will execute after each test
 
 @AfterClass ---This will execute for one time after the tests
