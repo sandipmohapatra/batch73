@@ -115,7 +115,110 @@ public void compareString()
 	
 }
 }
-------------------------------------------
+-------------------------------------------------------------------------------------------
+Example-2
+--------------------------
+package org.sandip;
+import static org.junit.Assert.*;
+import org.junit.Test;
+public class Test1 
+{
+	@Test
+	public void testString()
+	{
+		String str1=new String("apple");//new memory block will be created
+		String str2=new String("apple");//new memory block will be created
+		String str3=null;
+		String str4="apple";
+		String str5="apple";//new memory block will not be created
+		int val1=5;
+		int val2=6;
+		String[] expectedArray = {"one","two","three"};
+		String[] resultArray = {"one","two","three"};
+		
+		//to check two objects are equal
+		assertEquals(str1,str2);
+		//to check two values is true
+				assertTrue(val1< val2);
+		//to check two values is true
+				assertFalse(val1> val2);
+		//to check an object is null
+				assertNull(str3);
+		//to check an object is not null
+				assertNotNull(str1);
+		//to check if the 2 objects refence point to the same object
+		assertSame(str4,str5);
+		//to check if the 2 objects refence point to the same object
+				assertNotSame(str1,str5);
+		//to check if the 2 arrays are equal to each other
+				assertArrayEquals(expectedArray,resultArray);
+	}
+}
+
+----------------------------------------------------------------------------
+@BeforeClass ---This will execute for one time before the tests
+
+@Before ---This will execute before each test
+@Test class
+@After---This will execute after each test
+
+@Before ---This will execute before each test
+@Test class
+@After---This will execute after each test
+
+@AfterClass ---This will execute for one time after the tests
+
+-----------------------------------------------------------------------
+example-3
+---------------------
+import static org.junit.Assert.assertEquals;
+
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+public class Test3 
+{
+Calculator ob=new Calculator();
+@BeforeClass
+public static void beforeclassSetup()throws Exception
+{
+	System.out.println("Before Class");
+}
+@Before
+public void beforeTestSetup()
+{
+	System.out.println("Before Test");
+}
+@Test
+public void subTest()
+{
+	assertEquals(10,ob.sub(16, 6));
+}
+
+@Test
+public void addTest()
+{
+	assertEquals(16,ob.add(16, 6));
+}
+
+@After
+public void afterTestSetup()
+{
+	System.out.println("After Test");
+}
+
+@AfterClass
+public static void afterclassSetup()throws Exception
+{
+	System.out.println("After Class");
+}
+}
+------------------------------------------------------------------------------------------------------
+
+
+
 
 
 
