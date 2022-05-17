@@ -1,0 +1,20 @@
+HTML
+----------------
+hyper text markup language
+It is used for developing of Webpages.
+We have pre-defined tags for creating the webpages.
+<h1> to <h6>
+It is not case sensitive.It is user friendly.
+we have to save the file as .html
+It is supported by lot of browsers.
+-------------------------------------------------------------------
+file:///C:/Users/sandip/Desktop/Batch-73/HTML/second?t1=sandip&
+t2=sandip%40gmail.com&
+t3=07760213015&
+t4=2022-05-17&
+t5=Purchase&
+t6=Bangalore&
+t7=male&
+t8=cricket&
+t10=indian
+------------------------------------------------------------------------------------------------------------------------
