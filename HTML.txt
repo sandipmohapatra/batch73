@@ -22,3 +22,11 @@ t10=indian
 
 Prathima.Prabhu@stackroute.in
 sandip7760213015@gmail.com
+
+
+create a COVID-19 hospital (put images)
+1)registration
+2)see doctor's timetable
+3)book a bed
+4)book an ambulance
+5)feedback
