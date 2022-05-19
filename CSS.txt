@@ -1,0 +1,7 @@
+CSS :- cascading style sheet
+It is used to style the html pages.
+There are 3 types of CSS
+1)Internal css:- It is used within a single page.
+2)External css:- It is used within a single application.
+3)Inline css:- It is used within a single line.
+-------------------------------------------------------
