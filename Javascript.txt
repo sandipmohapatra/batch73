@@ -1,0 +1,50 @@
+Javascript
+----------------------
+1)we have to save the file by .html extention.
+2)java script is case sensitive.
+3)It is supported by advance browser.
+4)we have a datatype called var.
+5)Javascript support Object Oriented programming .
+6)we have lot of pre-defined functions in javascript .we can also create user defined functions.
+7)javascript will make the html page dynamic.
+8)Java script is mostly used for validation.
+example:- phoneno should be 10digits, password should be 8 characters.
+9)In javascript we will create class,object and constructor.
+-------------------------------------------------------------------------------------------------------------
+to print data on the browser we use
+1)document.write("");
+-----------------------------------------------------------
+we have some window Objects like
+1)prompt ---It is used to take input.
+2)alert---It is used to display message.
+---------------------------------------------------------------------------------------------
+wap to enter 5 nos and find the sum and avg.
+
+----------------------------------------------------------------------------------------------
+DOM :- document object model.
+
+1)document.write() :- to print on the browser.
+2)document.getElementById()
+3)document.innerHTML();
+
+when the html document is loaded in the browser  it becomes a document object.
+By the help of document object we can add dynamic content to our webpage.
+
+---------------------------------------------
+window object
+----------------------------
+1)alert()
+2)confirm()
+3)prompt()
+-----------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
