@@ -1,0 +1,23 @@
+<!-- Constructor Example---->
+<html>
+<script>
+function emp(id,name,address)
+{
+this.id=id; <!-- This is a ref pointer which is used to assign the values to itself -->
+this.name=name;
+this.address=address;
+}
+x=new emp(101,"sandip","Bangalore");
+y=new emp(102,"Kiran","Bangalore");
+z=new emp(103,"sunil","Bangalore");
+
+
+document.write(x.id+"  "+x.name+"  "+x.address);
+document.write("<br>");
+document.write(y.id+"  "+y.name+"  "+y.address);
+document.write("<br>");
+document.write(z.id+"  "+z.name+"  "+z.address);
+document.write("<br>");
+</script>
+</html>
+
