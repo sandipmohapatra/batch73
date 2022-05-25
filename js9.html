@@ -1,0 +1,54 @@
+<html>
+<script>
+function addno()
+{
+var a=parseInt(document.getElementById("t1").value);
+var b=parseInt(document.getElementById("t2").value);
+t3.value=a+b;
+}
+
+function subno()
+{
+var a=parseInt(document.getElementById("t1").value);
+var b=parseInt(document.getElementById("t2").value);
+t3.value=a-b;
+}
+
+function mulno()
+{
+var a=parseInt(document.getElementById("t1").value);
+var b=parseInt(document.getElementById("t2").value);
+t3.value=a*b;
+}
+
+function divno()
+{
+var a=parseInt(document.getElementById("t1").value);
+var b=parseInt(document.getElementById("t2").value);
+t3.value=a/b;
+}
+
+function sqrno()
+{
+var a=parseInt(document.getElementById("t1").value);
+t3.value=a*a;
+}
+
+</script>
+
+<body>
+<table>
+<tr><td>Enter a no<td><input type=text id=t1 size=20></tr>
+<tr><td>Enter a no<td><input type=text id=t2 size=20></tr>
+<tr><td>Result<td><input type=text id=t3 size=20></tr>
+<tr><td><td><input type=button value=add onclick=addno()>
+<input type=button value=sub onclick=subno()>
+<input type=button value=mul onclick=mulno()>
+<input type=button value=div onclick=divno()>
+<input type=button value=sqr onclick=sqrno()>
+</tr>
+
+</table>
+</body>
+</html>
+
