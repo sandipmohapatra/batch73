@@ -1,0 +1,19 @@
+<!-- Constructor Example---->
+<html>
+<script>
+function emp(id,name,address)
+{
+this.id=id; <!-- This is a ref pointer which is used to assign the values to itself -->
+this.name=name;
+this.address=address;
+}
+id=prompt("Enter your id");
+name=prompt("Enter your name");
+address=prompt("Enter your address");
+x=new emp(id,name,address);
+document.write(x.id+"  "+x.name+"  "+x.address);
+document.write("<br>");
+
+</script>
+</html>
+
