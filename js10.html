@@ -1,0 +1,63 @@
+<html>
+<script>
+function fun()
+{
+var a=f1.t1.value;
+var b=f1.t2.value;
+var c=f1.t3.value;
+var d=f1.t4.value;
+var e=f1.t5.value;
+if(a=="")
+{
+alert("name is empty");
+f1.t1.focus();
+}
+else if(b=="")
+{
+alert("email is empty");
+f1.t2.focus();
+}
+else if(c=="")
+{
+alert("phoneno is empty");
+f1.t3.focus();
+}
+else if(c.length!=10)
+{
+alert("phoneno enter 10 digit");
+f1.t3.focus();
+}
+
+else if(d=="")
+{
+alert("address is empty");
+f1.t4.focus();
+}
+else if(e=="")
+{
+alert("DOB is empty");
+f1.t5.focus();
+}
+else
+{
+f1.submit();
+alert("Data submitted successfully");
+}
+}
+</script>
+
+<body bgcolor=yellow>
+<h1><center>Employee Registration Page</center></h1><hr><hr>
+<form action=second name=f1>
+<table>
+<tr><td>Enter your name<td><input type=text name=t1 size=20></tr>
+<tr><td>Enter your email<td><input type=email name=t2 size=20></tr>
+<tr><td>Enter your phoneno<td><input type=number name=t3 size=20></tr>
+<tr><td>Enter your address<td><input type=text name=t4 size=20></tr>
+<tr><td>Enter your DOB<td><input type=date name=t5 size=20></tr>
+<tr><td><td><input type=button value=submit onclick="fun()"></tr>
+</table>
+</form>
+</body>
+</html>
+
