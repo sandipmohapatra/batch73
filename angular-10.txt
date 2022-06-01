@@ -18,14 +18,15 @@ step 1:install node.:-https://nodejs.org/en/download/  --->Windows Installer (.m
 command prompt :- node -v
 
 step 2:-npm install -g @angular/cli
-step 3:-desktop> ng new wipro37
-step 4:-cd wipro37
-step 5:- desktop/wipro37>
+step 3:-desktop> ng new wipro73
+step 4:-cd wipro73
+step 5:- desktop/wipro73>
 step 6:-to start the node server
-step 7:- desktop/wipro37>ng serve
+step 7:- desktop/wipro73>ng serve
 ---------------------------------------------------------------------
 step 8:-open browser ---->localhost:4200
 step 9:- install visual studio code
+https://code.visualstudio.com/download
 ----------------------------------------------------------------------------------------------------------------------------
 When you create a project we have make changes in these files 
 1)app.component.ts
