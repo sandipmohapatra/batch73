@@ -1,0 +1,28 @@
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-example1',
+  templateUrl: './example1.component.html',
+  styleUrls: ['./example1.component.css']
+})
+export class Example1Component  {
+
+  public product=
+  {
+    Name:'Samsung Tv',
+    Model:2022,
+    Price:45000.50,
+  }
+
+}
+---------------------------------------------------------
+<dl>
+<dt>Name</dt>
+<dd>{{product.Name}}</dd>
+<dt>Model</dt>
+<dd>{{product.Model}}</dd>
+<dt>Price</dt>
+<dd>{{product.Price}}</dd>
+
+</dl>>
+------------------------------------------------------
