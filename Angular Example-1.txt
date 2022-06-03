@@ -82,6 +82,46 @@ export class Example3Component {
 </body>
 </html>
 -----------------------------------------------------------------------------------------------------------
+Example-3
+--------------------
+import { Component } from '@angular/core';
 
+@Component({
+  selector: 'app-example1',
+  template: `
+<p>Hello my name is {{name}} </p>
+<p>Hello my email is {{email}} </p>
+<p>Hello my address is {{address.street}} {{address.loc}} {{address.state}} {{address.city}} </p>
+<h3>My Hobbies are </h3>{{hobbies}}
+<h3>My Daily Foods are </h3>
+<ul>
+<li *ngFor="let food of foods">
+{{food}}
+</ul>
+ `
+
+  })
+export class Example1Component  {
+name:String;
+email:String;
+address:any;
+hobbies:string[];
+foods:string[];
+constructor()
+{
+  this.name='sandip';
+  this.email='sandip@gmail.com';
+  this.address=
+  {
+    street:'MG Road',
+    loc:'Sivaji Nagar',
+    state:'Karnataka',
+    city:'Bangalore'
+  }
+  this.hobbies=['music','movies','party','football'];
+  this.foods=['rice','Biryani','sweets','cakes'];
+}
+}
+-------------------------------------------------------------------------------------------
 
 
