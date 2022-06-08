@@ -227,7 +227,95 @@ export class Example5Component  {
     <dd>{{product.MFD}}</dd>
     </dl>
 --------------------------------------------------------------------------
+example-6
+------------------
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+<header>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <body id="myPage">
+<div class="w3-top">
+ <div class="w3-bar w3-theme-d2 w3-left-align">
+  <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-hover-white w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
+  <a class="w3-bar-item w3-button w3-coral"><i class="fa fa-home w3-margin-right"></i>Wipro Batch-73</a>
+  <a routerLink="home" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Home</a>
+  <div class="w3-dropdown-hover w3-hide-small">
+    <button class="w3-button" title="Notifications">Registration <i class="fa fa-caret-down"></i></button>     
+    <div class="w3-dropdown-content w3-card-4 w3-bar-block">
+      <a routerLink="/addemployee" class="w3-bar-item w3-button">EmployeeRegistration</a>
+      <a routerLink="/addemployee"class="w3-bar-item w3-button">CustomerRegistration</a>
+    </div>
+    </div>
+  
+  <a [routerLink]="['/Login']" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Login</a>
+   
+  
+</div>
+<router-outlet></router-outlet>
+</div>
+    </body>
+    </header>
 
+--------------------------------------------------------------------------------------------------------------
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { Example1Component } from './example1/example1.component';
+import { Example2Component } from './example2/example2.component';
+import { Example3Component } from './example3/example3.component';
+import { Example4Component } from './example4/example4.component';
+import { RoutingComponent } from './routingdemo';
+import { RouterModule,Routes } from '@angular/router';
+import {CharanComponent} from './Charan';
+import { Example5Component } from './example5/example5.component';
+import { Example6Component } from './example6/example6.component';
+
+const appRoutes: Routes =[ 						
+  { path:'Login',component: LoginComponent },
+  { path:'addemployee',component: RegisterComponent }
+    ];
+
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    LoginComponent,
+    RegisterComponent,
+    Example1Component,
+    Example2Component,
+    Example3Component,
+    Example4Component,
+    RoutingComponent,
+    CharanComponent,
+    Example5Component,
+    Example6Component
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    RouterModule.forRoot(appRoutes)],
+  providers: [],
+  bootstrap: [Example6Component]
+})
+export class AppModule { }
+-------------------------------------------------------------------------------------------------
 
 
 
