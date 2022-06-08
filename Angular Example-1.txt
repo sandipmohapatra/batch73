@@ -189,10 +189,44 @@ const appRoutes: Routes =[ 						<------------------------------------
 })
 export class AppModule { }
 -----------------------------------------------------------------------
+create a COVID-19 hospital
+1)registration
+2)see doctor's time table
+3)book a doctor appoinment
+4)book an ambulance
+5)book a bed
+6)feebback
+--------------------------------------------------------------------
 
+example 5:-
+---------------------
+import { Component } from '@angular/core';
 
+@Component({
+  selector: 'app-example5',
+  templateUrl: './example5.component.html',
+  styleUrls: ['./example5.component.css']
+})
+export class Example5Component  {
 
+  public product=
+  {
+    name:'Samgung TV',
+    price:45000.50,
+    MFD:'10th-Jan-2021'
+  }
 
+}
+----------------------------------------------------------
+<dl>
+    <dt>Name :</dt>
+    <dd>{{product.name}}</dd>
+    <dt>Price :</dt>
+    <dd>{{product.price}}</dd>
+    <dt>Manufacture Date :</dt>
+    <dd>{{product.MFD}}</dd>
+    </dl>
+--------------------------------------------------------------------------
 
 
 
