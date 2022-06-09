@@ -316,7 +316,162 @@ const appRoutes: Routes =[
 })
 export class AppModule { }
 -------------------------------------------------------------------------------------------------
+1. ifdemo.component.ts
+------------------------------------------------------------------------------------
+import { Component, OnInit } from '@angular/core';
 
+@Component({
+  selector: 'app-ifdemo',
+  templateUrl: './ifdemo.component.html',
+  styleUrls: ['./ifdemo.component.css']
+})
+export class IfdemoComponent {
+   public product = {
+     Name: 'Nike Casuals',
+     Price: 4500.55,
+     Photo: 'assets/shoe.jpg'
+   };
+   public showImage = false;   <!-- initial state-->
+   public btnText = 'Show';
+
+   public TogglePreview() 
+{
+      this.showImage = (this.showImage==false)?true:false;
+      this.btnText = (this.btnText=='Show')?'Hide':'Show';
+   }
+}
+--------------------------------------------------------------------------------------------------------------------
+
+2. ifdemo.component.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+
+<div class="container-fluid">
+    <h2>Product Details</h2>
+    <div class="row">
+      <div class="col-3">
+          <dl>
+              <dt>Name</dt>
+              <dd>{{product.Name}}</dd>
+              <dt>Price</dt>
+              <dd>{{product.Price}}</dd>
+          </dl>
+          <button (click)="TogglePreview()" class="btn btn-primary btn-sm btn-block">{{btnText}} Preview</button>
+      </div>
+      <div class="col-9">
+        <div *ngIf="showImage">
+            <img [src]="product.Photo" height="200" width="200" >
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+-----------------------------------------------------------------------------------------------------------------------
+example-3
+-----------------------
+
+Likesdemo.component.ts
+-------------------------------------------------------------------------------
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-like-demo',
+  templateUrl: './like-demo.component.html',
+  })
+export class LikeDemoComponent {
+
+  public products =
+ [
+    {Name: 'JBL Speaker', Photo: 'assets/jblspeaker.webp', Likes: 0, Dislikes: 0},
+    {Name: 'Nike Casuals', Photo: 'assets/shoe.jpg', Likes: 0, Dislikes: 0},
+    {Name: 'Shirt', Photo: 'assets/shirt.jpeg', Likes: 0, Dislikes: 0}
+  ];
+  public LikesCounter(item:any){
+      item.Likes++;
+  }
+  public DislikesCounter(item:any){
+       item.Dislikes++;
+  }
+}
+
+-----------------------------------------------------------------------------------
+	Likesdemo.component.html
+--------------------------------------------------------------
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+<div class="container-fluid">
+ <h2>Products Catalog</h2>
+ <div class="card-deck">
+    <div class="card" *ngFor="let item of products">
+        <div class="card-header">
+            <h3>{{item.Name}}</h3>
+        </div>
+        <div class="card-body">
+            <img width="200" height="200" [src]="item.Photo" >
+        </div>
+        <div class="card-footer">
+           <div class="btn-group">
+            <button (click)="LikesCounter(item)" class="btn btn-success">[{{item.Likes}}]<span class="fa fa-thumbs-up"></span> Like(s)</button>
+            <button (click)="DislikesCounter(item)" class="btn btn-danger">[{{item.Dislikes}}]<span class="fa fa-thumbs-down">Dislike(s)</span></button>
+           </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+-------------------------------------------------------------------------------------------
+In angular there are 2 ways of data binding
+----------------------------------------------------------
+<input type=text name=t1 size=20>  <----In t1 the data will be stored 
+--------------------------------------------------------------
+1)One way data binding
+i)interpolation 
+we use double curly braces{{}} and is known as interpolation or template expresssion.
+{{name}}
+we can assign some values in the "app.component.ts" and display the value in the html page
+example:-
+<p> The sum of 6 and 7 is {{6+7}}</p>
+<p> The multiply of 6 and 7 is {{6*7}}</p>
+
+-------------------------------------------------------------------------
+ii)property binding
+----------------------------------------
+in this we use square brackets to the DOM properties.
+<img[src]="shoe.jpg">
+--------------------------------------------------------------
+iii)event binding
+-----------------------------
+in this we use circular brackets.It is mostly used with buttons.
+example:-
+<button(click)="onSave">Save</button>
+----------------------------------------------------------------------------
+2)two way data binging :- it will store and update the data.
+-----------------------------------
+In this user can update the entry.A change made to the user entry in the html input element will be reflected.
+
+Enter your name<input type=text [(ngModel)]="name">
+----------------------------------------------------------------------------------------------
 
 
 
