@@ -472,7 +472,177 @@ In this user can update the entry.A change made to the user entry in the html in
 
 Enter your name<input type=text [(ngModel)]="name">
 ----------------------------------------------------------------------------------------------
+Example-amazon Project
+------------------------------------------
+import { Component } from '@angular/core';
 
+@Component({
+  selector: 'app-amazon',
+  templateUrl: './amazon.component.html'
+ })
+export class AmazonComponent 
+{
+  public categories = ['Select a Category', 'Electronics', 'Footwear', 'Fashion'];
+  public electronics = ['Select Electronics', 'JBL Speaker', 'Earpods'];
+  public footwear = ['Select Footwear', 'Nike Casuals', 'Lee Cooper Boot'];
+  public fashion = ['Select Fashion', 'Shirt', 'Jeans'];
+  public data = [
+   {Name: 'JBL Speaker', Price: 4500.55, Photo: 'assets/jblspeakers.jpg'},
+   {Name: 'Earpods', Price: 3000.44, Photo: 'assets/earpods.jpg'},
+   {Name: 'Nike Casuals', Price: 6000.44, Photo: 'assets/shoe.jpg'},
+   {Name: 'Lee Cooper Boot', Price: 2000.44, Photo: 'assets/shoe1.jpg'},
+   {Name: 'Shirt', Price: 1000.44, Photo: 'assets/shirt.jpg'},
+   {Name: 'Jeans', Price: 4000.44, Photo: 'assets/jeans.jpg'},
+  ];
+  public products:any = [];
+  public selectedCategoryName = 'Select a Category';
+  public selectedProductName:any;
+  public searchResults:any = [];
+  public searchedProduct:any = {
+    Name:'',
+    Price:0,
+    Photo:''
+  };
+  public cartItems:any = [];
+  public cartItemsCount = 0;
+  public showCart = false;
+  public GetCartItemsCount()
+{
+    this.cartItemsCount = this.cartItems.length;
+  }
+  public OnCategoryChange()
+{
+    switch(this.selectedCategoryName)
+    {
+      case 'Electronics':
+        this.products = this.electronics;
+        break;
+      case 'Footwear':
+        this.products = this.footwear;
+        break;
+      case 'Fashion':
+        this.products = this.fashion;
+        break;
+      default:
+        this.products = ['Select a Category'];
+        break;
+    }
+  }
+  public onProductChanged()
+{
+      this.searchResults = this.data.filter(x=>x.Name==this.selectedProductName);
+      this.searchedProduct = {
+        Name: this.searchResults[0].Name,
+        Price: this.searchResults[0].Price,
+        Photo: this.searchResults[0].Photo
+      };
+  }
+  public AddToCartClick() 
+{
+     this.cartItems.push(this.searchedProduct);
+     alert('Item Added to Cart');
+     this.GetCartItemsCount();
+  }
+  public ToggleCartDisplay()
+ {
+    this.showCart = (this.showCart==false)?true:false;
+  }
+  public DeleteCartItem(index:any)
+{
+     let confirmDelete = confirm('Are you sure, want to Delete?');
+     if(confirmDelete==true) {
+       this.cartItems.splice(index, 1);
+       this.GetCartItemsCount();
+     }
+  }
+ }
+---------------------------------------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+<body>
 
-
-
+<div class="container-fluid">
+    <h2 class="text-center text-primary"><span class="fa fa-shopping-cart"></span>Amazon - Shopping</h2>
+    <div class="row">
+      <div class="col-3">
+          <div class="form-group">
+              <label>Select a Category</label>
+              <div>
+                  <select (change)="OnCategoryChange()" [(ngModel)]="selectedCategoryName" class="form-control">
+                      <option *ngFor="let item of categories">
+                          {{item}}
+                      </option>
+                  </select>
+              </div>
+          </div>
+          <div class="form-group">
+              <label>Select a Product</label>
+              <div>
+                  <select (change)="onProductChanged()" [(ngModel)]="selectedProductName" class="form-control">
+                      <option *ngFor="let item of products">
+                          {{item}}
+                      </option>
+                  </select>
+              </div>
+          </div>
+          <div class="form-group">
+              <label>Preview</label>
+              <div class="card">
+                  <div class="card-header">
+                      <h3>{{searchedProduct.Name}}</h3>
+                  </div>
+                  <div class="card-body text-center">
+                      <img [src]="searchedProduct.Photo" width="200" height="200">
+                  </div>
+                  <div class="card-footer text-center">
+                      <h3>{{searchedProduct.Price | currency:'INR'}}</h3>
+                      <button (click)="AddToCartClick()" class="btn btn-danger btn-block"> <span class="fa fa-shopping-cart"></span>Add to Cart</button>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="col-6">
+          <div>
+              <table *ngIf="showCart" style="margin-top: 100px;" class="table table-hover">
+                  <caption>Your Cart Items</caption>
+                  <thead>
+                      <tr>
+                          <th>Name</th>
+                          <th>Price</th>
+                          <th>Preview</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr *ngFor="let item of cartItems; let i=index">
+                          <td>{{item.Name}}</td>
+                          <td>{{item.Price}}</td>
+                          <td><img width="50" height="50" [src]="item.Photo"></td>
+                          <td>
+                              <button (click)="DeleteCartItem(i)" class="btn btn-outline-danger"> <span class="fa fa-trash"></span> Delete</button>
+                          </td>
+                      </tr>
+                  </tbody>
+              </table>
+          </div>
+      </div>
+      <div class="col-3">
+          <div>
+              <button (click)="ToggleCartDisplay()" class="btn btn-danger btn-block"><span class="fa fa-shopping-cart"></span> [{{cartItemsCount}}] Your Cart Items</button>
+          </div>
+          
+      </div>
+    </div>
+  </div>
+</body>
+----------------------------------------------------------------------------------------------
+import { FormsModule } from '@angular/forms';
+import FormsModule
+-------------------------------------------
