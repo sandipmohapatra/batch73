@@ -735,10 +735,37 @@ public product = {
     
  </div>
 ----------------------------------------------------------------------
+user defined/custom pipe
+-------------------------------------------
+example-1
+-----------------------------
+import {Pipe,PipeTransform} from '@angular/core';
 
+@Pipe({name: 'Multiplier'})
 
+export class Multiplierpipe implements PipeTransform
+{
+    transform(value:number, multiply: number):number
+    {
+        return multiply * value
+    }
+}
+-----------------------------------------------------------
+import { Component, OnInit } from '@angular/core';
 
-
+@Component({
+  selector: 'app-pipedemo1',
+  template: `
+  <p>Multiplier {{5 | Multiplier: 20}}</p> <br />
+  
+  <p>Multiplier {{2 | Multiplier: 20}}</p> <br />
+  
+  <p>Multiplier {{4 | Multiplier: 20}}</p> <br />
+   `
+})
+export class Pipedemo1Component {
+}
+---------------------------------------------------------------------------------------------
 
 
 
