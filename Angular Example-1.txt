@@ -767,7 +767,34 @@ export class Pipedemo1Component {
 }
 ---------------------------------------------------------------------------------------------
 
+example-2
+----------------------
 
+import {Pipe,PipeTransform} from '@angular/core';
+@Pipe({name: 'sentencecase'})
+
+export class SentenceCase implements PipeTransform
+{
+    transform(str)
+    {
+        let firstChar=str.charAt(0);
+        let restChars=str.substring(1);
+        let sentence=firstChar.toUpperCase()+restChars.toLowerCase();
+        return sentence;
+    }
+}
+-------------------------------------------------------------------------------------
+import { Component } from '@angular/core';
+@Component({
+  selector: 'app-multiplier',
+ templateUrl:'multiplier.component.html'
+   
+ })
+export class MultiplierComponent 
+ {
+public msg='welcome to Angular 10';
+   }
+--------------------------------------------------------------------------
 
 
 
