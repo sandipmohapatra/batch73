@@ -83,10 +83,12 @@ export class Example3Component {
       <label for="email">Email:</label>
 <input type="email" class="form-control" id="email" placeholder="Enter email" name=t3 required>
     </div>
+
     <div class="form-group">
       <label for="pwd">Password:</label>
       <input type="password" class="form-control" id="pwd" placeholder="Enter password" name=t4 required>
     </div>
+
     <div class="checkbox">
       <label><input type="checkbox"> Remember me</label>
     </div>
@@ -660,8 +662,79 @@ export class AmazonComponent
 import { FormsModule } from '@angular/forms';
 import FormsModule
 -------------------------------------------
+Angular Pipe
+--------------------------
+There are 2 types of pipe
+1)custom pipe
+2)Pre-defined Pipe
+----------------------------------------------------
+pipe is used to transform the data.
+example-100 ---Rs100
+----------------------------------------------------------
+example-1
+---------------------
+import { Component } from '@angular/core';
 
+@Component({
+  selector: 'app-pipe-demo',
+  templateUrl: './pipe-demo.component.html',
+  styleUrls: ['./pipe-demo.component.css']
+})
+export class PipeDemoComponent {
 
+  TutorialName: string = 'Angular JS'; 
+  appList: string[] = ["Binding", "Display", "Services"]; 
+}
+---------------------------------------------------------------------------------
+<div> 
+    The name of this Tutorial is {{TutorialName}}<br>  
+    The first Topic is {{appList[0] | uppercase }}<br> 
+    The second Topic is {{appList[1] | uppercase }}<br> 
+    The third Topic is {{appList[2] | uppercase }}<br> 
+ </div>
+ 
+------------------------------------------------------------------------------------------------
+example-2
+--------------------
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-pipe-demo',
+  templateUrl: './pipe-demo.component.html',
+  styleUrls: ['./pipe-demo.component.css']
+})
+export class PipeDemoComponent {
+
+  TutorialName: string = 'Angular JS'; 
+  appList: string[] = ["Binding data", "Display device", "Services oriented"]; 
+public product = {
+  Name:'Samsung TV',
+  Price:45000.50,
+  Mfd:new Date('2021-02-02')
+}
+}
+------------------------------------------------------
+<div> 
+    The name of this Tutorial is {{TutorialName}}<br>  
+    The first Topic is {{appList[0] | titlecase }}<br> 
+    The second Topic is {{appList[1] | titlecase }}<br> 
+    The third Topic is {{appList[2]| titlecase }}<br> 
+    The product name is {{product.Name | titlecase}}<br>
+    The product price is {{product.Price}}<br>
+    The product price is {{product.Price|number}}<br>
+    The product price is {{product.Price|currency}}<br>
+    The product price is {{product.Price|currency:'INR'}}<br>
+    The product price is {{product.Price|currency:'&#8377;'}}<br>
+    The product date is {{product.Mfd|date:'MMM-dd-yyyy'}}<br>
+    The product date is {{product.Mfd|date:'shortDate'}}<br>
+    The product Date is {{product|json}}<br/>    
+    The Canadian dollar {{1234567 | currency:'CAD':'symbol' :'1.2-5'}}<br>
+    The first Topic is {{appList[0] | slice:1:2}}<br> 
+    The second Topic is {{appList[1] | slice:1:3}}<br> 
+   The third Topic is {{appList[2]| slice:2:3}}<br> 
+    
+ </div>
+----------------------------------------------------------------------
 
 
 
