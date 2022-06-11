@@ -1,3 +1,17 @@
+npm install -g typescript@latest
+---------------------------------------------------------------
+step 1:-how to compile a typescript program
+---------------------------------------------------
+tsc example1.ts
+---------------------------------------------------------
+* after compilation it will be converted into javascript(js)
+-----------------------------------------------------
+step 2:-to run the javascript
+---------------------------------------
+node example1.js
+-----------------------------------------------
+
+
 Example-1
 -------------------------
 import { Component } from '@angular/core';
@@ -646,3 +660,15 @@ export class AmazonComponent
 import { FormsModule } from '@angular/forms';
 import FormsModule
 -------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
