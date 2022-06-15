@@ -722,7 +722,29 @@ while(rs.next()) <---till there is records it will print.
 {
 println();
 }
-----------------------------------------------------------------------------
+--------------------Assignment-1--------------------------------------------------------
+
+Create a bank table
+accno,cname,caddress,aphoneno,cemail.
+Create a html page and enter the data ,update the data,delete the data,display the data.
+Use JSP as the middle ware.
+-------------------------------------Assignment-2----------------------------------------------
+html and jsp
+------------------------
+create a covid-19 hospital
+create a registration page
+doctor time table
+book a bed
+book an ambulance
+feedback page.
+---------------------------------------------------------------------------------
+
+
+
+
+
+
+
 
 
 
