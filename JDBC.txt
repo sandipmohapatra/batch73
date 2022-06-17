@@ -738,7 +738,48 @@ book a bed
 book an ambulance
 feedback page.
 ---------------------------------------------------------------------------------
-
+servlet example-1
+---------------------------
+<html>
+<body bgcolor=yellow>
+<h1><center>Student Regsitration Page</center></h1><hr><hr>
+<form action=Reg>
+<table>
+<tr><td>Enter your name<td><input type=text name=t1 size=20></tr>
+<tr><td>Enter your address<td><input type=text name=t2 size=20></tr>
+<tr><td>Enter your email<td><input type=text name=t3 size=20></tr>
+<tr><td>Enter your phoneno<td><input type=text name=t4 size=20></tr>
+<tr><td><td><input type=submit name=b1 value=submit></tr>
+</table>
+</form>
+</body>
+</html>
+-------------------------------------------------------------
+import java.io.*;
+import javax.servlet.*;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.*;
+@WebServlet("/Reg")
+public class Reg extends HttpServlet 
+{
+	public void service(HttpServletRequest req,HttpServletResponse res)throws ServletException,IOException
+	{
+		res.setContentType("text/html");
+		PrintWriter pw=res.getWriter();
+		String a=req.getParameter("t1");
+		String b=req.getParameter("t2");
+		String c=req.getParameter("t3");
+		String d=req.getParameter("t4");
+		pw.println("The name is"+a);
+		pw.println("<br>");
+		pw.println("The address is"+b);
+		pw.println("<br>");
+		pw.println("The email is"+c);
+		pw.println("<br>");
+		pw.println("The phone on is"+d);
+			}
+}
+-----------------------------------------------------------------------------------------
 
 
 
