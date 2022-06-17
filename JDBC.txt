@@ -780,7 +780,51 @@ public class Reg extends HttpServlet
 			}
 }
 -----------------------------------------------------------------------------------------
+create table student73(name varchar2(30),address varchar2(30),email varchar2(30),phoneno varchar2(30));
 
+select * from student73
+--------------------------------------------------------------------------
+import java.io.*;
+import java.sql.*;
+import javax.servlet.*;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.*;
+@WebServlet("/Second")
+public class Second extends HttpServlet 
+{
+	public void service(HttpServletRequest req,HttpServletResponse res)throws ServletException,IOException
+	{
+		res.setContentType("text/html");
+		PrintWriter pw=res.getWriter();
+		String a=req.getParameter("t1");
+		String b=req.getParameter("t2");
+		String c=req.getParameter("t3");
+		String d=req.getParameter("t4");
+		pw.println("The name is"+a);
+		pw.println("<br>");
+		pw.println("The address is"+b);
+		pw.println("<br>");
+		pw.println("The email is"+c);
+		pw.println("<br>");
+		pw.println("The phone on is"+d);
+		try
+		{
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		 Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","1234");
+		 PreparedStatement st=con.prepareStatement("insert into student73 values(?,?,?,?)");
+		 st.setString(1, a);
+		 st.setString(2, b);
+		 st.setString(3, c);
+		 st.setString(4, d);
+		 st.execute();
+		 pw.println("row inserted");
+			}
+		catch(Exception ae)
+		{
+			ae.printStackTrace();
+		}
+}}
+-------------------------------------------------------------------------------------------------------------------
 
 
 
