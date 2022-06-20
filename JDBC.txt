@@ -952,6 +952,9 @@ create a project COVID-19 create forms,menuBar using bootstrap
 5)Book a doctor appointment
 6)FeedBack
 ------------------------------------------------------------------------------------------------------
+servlet-api.jar  ----tomcate--lib
+ojdbc14.jar -----oracle
+-------------------------------------------------------------
 
 
 
