@@ -780,10 +780,27 @@ public class Reg extends HttpServlet
 			}
 }
 -----------------------------------------------------------------------------------------
+Oracle
+----------------
 create table student73(name varchar2(30),address varchar2(30),email varchar2(30),phoneno varchar2(30));
 
 select * from student73
---------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------
+<html>
+<body bgcolor=yellow>
+<h1><center>Student Regsitration Page</center></h1><hr><hr>
+<form action="Second">
+<table>
+<tr><td>Enter your name<td><input type=text name=t1 size=20></tr>
+<tr><td>Enter your address<td><input type=text name=t2 size=20></tr>
+<tr><td>Enter your email<td><input type=text name=t3 size=20></tr>
+<tr><td>Enter your phoneno<td><input type=text name=t4 size=20></tr>
+<tr><td><td><input type=submit name=b1 value=submit></tr>
+</table>
+</form>
+</body>
+</html>
+------------------------------------------------------------------------------------------------------------
 import java.io.*;
 import java.sql.*;
 import javax.servlet.*;
@@ -825,9 +842,116 @@ public class Second extends HttpServlet
 		}
 }}
 -------------------------------------------------------------------------------------------------------------------
+Employee registration Page
+--------------------------------------------
+create table wiprobatch69 (empno number,name varchar2(30),address varchar2(30));
+-------------------------------------------------------------------------------------------------------------------------
+<html>
+<body bgcolor=yellow>
+<h1><center>Employee Registration Page</center></h1><hr>
+<form action="Second">
+<table>
+<tr><td>Enter empno<td><input type=text name=t1 size=20></tr>
+<tr><td>Enter name<td><input type=text name=t2 size=20></tr>
+<tr><td>Enter address<td><input type=text name=t3 size=20></tr>
+<tr><td><td>
+<input type=submit value=insert name=b1>
+<input type=submit value=update name=b1>
+<input type=submit value=delete name=b1>
+<input type=submit value=select name=b1></tr>
 
+</table>
+</form>
+</body>
+</html>
+------------------------------------------------------------------------------------------------------------
+import java.io.*;
+import java.sql.*;
+import javax.servlet.*;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.*;
+@WebServlet("/Second")
+public class Second extends HttpServlet 
+{
+public void service(HttpServletRequest req,HttpServletResponse res)throws ServletException,IOException
+{
+	res.setContentType("text/html");
+	PrintWriter pw=res.getWriter();
+	String a=req.getParameter("t1");
+	String b=req.getParameter("t2");
+	String c=req.getParameter("t3");
+	String d=req.getParameter("b1");
+	pw.println("The empno is "+a);
+	pw.println("<br>");
+	pw.println("The empname is "+b);
+	pw.println("<br>");
+	pw.println("The emp address is "+c);
+	pw.println("<br>");
+	pw.println("The button pressed is "+d);
+	try
+	{
+	Class.forName("oracle.jdbc.driver.OracleDriver");
+	Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "system", "1234");
+	if(d.equals("insert"))
+	{
+	PreparedStatement st = con.prepareStatement("insert into wiprobatch69 values(?,?,?)");
+	st.setInt(1,Integer.parseInt(a));
+	st.setString(2, b);
+	st.setString(3, c);
+	st.execute();
+	pw.println("row inserted");
+	}
 
+	else if(d.equals("update"))
+	{
+	PreparedStatement st = con.prepareStatement("update wiprobatch69 set name=?,address=? where empno=?");
+	st.setString(1,b);
+	st.setString(2,c);
+	st.setInt(3,Integer.parseInt(a));
+	st.execute();
+	pw.println("row updated");
+	}
 
+	else if(d.equals("delete"))
+	{
+	PreparedStatement st = con.prepareStatement("delete from wiprobatch69 where empno=?");
+	st.setInt(1,Integer.parseInt(a));
+	st.execute();
+	pw.println("row deleted");
+	}
+
+	else if(d.equals("select"))
+	{
+	PreparedStatement st = con.prepareStatement("select * from wiprobatch69");
+	ResultSet rs=st.executeQuery();
+	pw.println("<table border=1>");
+	pw.println("<tr><th>Empno<th>Name<th>Address</tr>");
+	while(rs.next())
+	{
+	pw.println("<tr><td>"+rs.getString(1)+"<td>"+rs.getString(2)+" <td> "+rs.getString(3)+"</tr>");
+	}
+	pw.println("</table>");
+	}
+	else
+	{
+	pw.println("Wrong Input");
+	}
+	}
+	catch(Exception ae)
+	{
+		pw.println("The error is :"+ae);
+	}
+}
+}
+-----------------------------------------------------------------------------------
+create a project COVID-19 create forms,menuBar using bootstrap
+1)Home page
+2)Doctor' s timetable
+3)Book a bed
+4)Book a ambulance
+5)Book a doctor appointment
+6)FeedBack
+------------------------------------------------------------------------------------------------------
 
 
 
