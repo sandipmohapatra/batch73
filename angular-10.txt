@@ -880,6 +880,121 @@ export class AmazonComponent
 import { FormsModule } from '@angular/forms';
 import FormsModule
 -------------------------------------------
+Angular + SpringBoot Project
+---------------------------------------------
+modules of Angular project
+1)student-all
+i)ngOnInit(): void {    this.getAllStudents();  }
+ii)getAllStudents(){}
+iii)deleteStudent(id: number) {}
+iv)editStudent(id: number) {}
+------------------------------------------------------------------------------------------------
+2)student-create
+a)student.create.component.html ----[(ngModel)]----it takes input from the keyboard and store in the data.
+b)student.create.component.ts
+i)constructor(private service: StudentService)
+ii)ngOnInit(): void {this.student = new Student(); }
+iii)createStudent() {read the data,clear the form for new Data}
+---------------------------------------------------------------------------------------------------
+3)student-edit
+i)student-edit.component.ts
+---ngOnInit(): void{this.activatedRouter.snapshort.param['id'];
+---this.service.getOneStudent(this.id).subscribe(data => this.student=data;}
+ii)updateStudent() {}
+------------------------------------------------------------------------------------------------------------------------
+iii)student-edit.component.html
+same as student.create.component.html but it fetches the data from the backend;
+iv)<form (ngSubmit)='updateStudent()'>
+-------------------------------------------------
+4)app.component.ts
+starting point----selector: 'app-root',
+bootstrap: [AppComponent]
+------------------------------------------------
+5)app.component.html
+menubar
+---------------------------------------
+6)student.ts
+-----------------------------------------------------
+export class Student
+{
+id:number;
+name:string;
+fee:number;
+course:string;
+email:string;
+addr:string;
+}
+--------------------------------------------------------------------------
+7)student.service.ts
+------------------------------------------
+import  {Injectable} from '@angular/core';
+import  {HttpClient} from '@angular/common/http';
+import  {Observable} from 'rxjs';
+import  {Student} from './student';
+@Injectable({
+providedIn:'root'
+})
+-----------------------------------------
+An Observable is a stream of event or data .
+It return 
+http.get('http://localhost:8090/rest/student/all');
+http.put('http://localhost:8090/rest/student/modify/id');
+http.delete('http://localhost:8090/rest/student/delete/id');
+http.post('http://localhost:8090/rest/student/save/');
+----------------------------------------------------------------------
+getAllStudents(): Observable<Student[]> return {http.get('http://localhost:8090/rest/student/all');}
+---------------------------------------------------------------------------
+deleteOneStudent(id: number): Observable<any> {http.delete('http://localhost:8090/rest/student/delete/id');}
+------------------------------------------------------------------------------
+createStudent(student: Student): Observable<any> {http.post('http://localhost:8090/rest/student/save/');}
+------------------------------------------------------------------------------------------------
+updateStudent(id: number, student: Student): Observable<any>{http.put('http://localhost:8090/rest/student/modify/id');}
+----------------------------------------------------------------------------------------------------------------------
+
+subscribing:- kicks off the Observable stream.without a subscribe the stream won't start emitting values.
+---------------------------------------------------------------------------------------------------------------------------------------
+
+springBoot:-RestEndPoint
+---------------------------------------------
+1)@RestController
+2)@RequestMapping("/rest/student")
+3)@CrossOrigin(origins = "http://localhost:4200")
+--------------------------------------------------------------------------
+4)@PostMapping("/save")
+--------------------------------------------------
+5)@GetMapping("/all")
+-------------------------------------------------------
+6)@DeleteMapping("/remove/{id}")
+-------------------------------------------------------------
+7)@PutMapping("/modify/{id}")
+--------------------------------------------------------------------------
+
+
+--------------------------oooooooooooo------------------------------------------------------------------
+HTTP status are the data send from the backend to frontend
+----------------------------------------------------------------------------------------------------------------
+String body = "Student '"+id+"' created";
+1)resp =  new ResponseEntity<String>(body,HttpStatus.CREATED); //201
+-----------------------------------------------------------------------------------------------------------------------------------------------
+2)resp =  new ResponseEntity<String>("Unable to Create Student",HttpStatus.INTERNAL_SERVER_ERROR); //500
+------------------------------------------------------------------------------------------------------------------------------
+List<Student> list = service.getAllStudents();
+			if(list!=null && !list.isEmpty()) {
+				log.info("Data is not empty=>"+list.size());
+				list.sort((s1,s2)->s1.getName().compareTo(s2.getName()));
+3)resp = new ResponseEntity<List<Student>>(list, HttpStatus.OK);//200
+---------------------------------------------------------------------------------------------------------------------------------------------
+boolean exist = service.isStudentExist(id);
+			if(exist) {
+				service.deleteStudent(id);
+4)resp = new ResponseEntity<String>("Student '"+id+"' not exist",HttpStatus.BAD_REQUEST);//401
+----------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
 
 
 
