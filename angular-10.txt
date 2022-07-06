@@ -877,6 +877,9 @@ export class AmazonComponent
   </div>
 </body>
 ----------------------------------------------------------------------------------------------
+service contain methods which can be accessed by other modules.
+methods can applicable for the same module.
+----------------------------------------------------------------------------------------------
 import { FormsModule } from '@angular/forms';
 import FormsModule
 -------------------------------------------
@@ -989,9 +992,20 @@ boolean exist = service.isStudentExist(id);
 				service.deleteStudent(id);
 4)resp = new ResponseEntity<String>("Student '"+id+"' not exist",HttpStatus.BAD_REQUEST);//401
 ----------------------------------------------------------------------------------------------------------------------------
+Angular+springBoot+SpringBoot JPA+Rest API
+------------------------------------------------------------------------------
+create a application for employee
 
-
-
+empid
+name
+address
+salary
+designation
+email
+phoneno
+---------------------------------------------------------------------------------------------
+services
+-----------------------------
 
 
 
